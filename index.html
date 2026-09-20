@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123b2b">
+  <title>Crucigramas temáticos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <p class="kicker">CUADERNO DE PASATIEMPOS</p>
+    <h1>Crucigramas temáticos</h1>
+    <p class="subtitle">Cuadrículas densas, limpias y listas para imprimir</p>
+  </header>
+
+  <main>
+    <section class="panel controls" aria-labelledby="crear-titulo">
+      <h2 id="crear-titulo">Crear un crucigrama</h2>
+      <div class="form-grid">
+        <label class="wide">Tema
+          <input id="theme" type="text" maxlength="120" value="Pintura española" placeholder="Ej.: Geografía de España" autocomplete="off">
+        </label>
+        <label>Tamaño
+          <select id="size">
+            <option value="15">15 × 15</option>
+            <option value="20" selected>20 × 20</option>
+          </select>
+        </label>
+        <label>Número de palabras
+          <select id="wordCount">
+            <option value="24">24</option>
+            <option value="32">32</option>
+            <option value="40" selected>40</option>
+            <option value="48">48</option>
+          </select>
+        </label>
+        <label>Dificultad
+          <select id="difficulty">
+            <option value="facil">Fácil</option>
+            <option value="media" selected>Media</option>
+            <option value="dificil">Difícil</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions">
+        <button id="generate" class="primary">Generar con IA</button>
+        <button id="regenerate">Otra versión</button>
+        <button id="toggleSolution" disabled>Mostrar solución</button>
+        <button id="print" disabled>Imprimir / PDF</button>
+      </div>
+      <p id="status" class="status" role="status">Escribe cualquier tema y pulsa «Generar con IA».</p>
+    </section>
+
+    <section id="result" class="paper hidden" aria-live="polite">
+      <div class="paper-heading">
+        <div>
+          <p class="edition">CRUCIGRAMA TEMÁTICO</p>
+          <h2 id="puzzleTitle"></h2>
+        </div>
+        <div id="quality" class="quality"></div>
+      </div>
+      <div class="puzzle-layout">
+        <div id="grid" class="crossword" aria-label="Cuadrícula del crucigrama"></div>
+        <div class="clues">
+          <section><h3>Horizontales</h3><ol id="across"></ol></section>
+          <section><h3>Verticales</h3><ol id="down"></ol></section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>Generador de crucigramas temáticos · Las claves permanecen en el servidor</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
